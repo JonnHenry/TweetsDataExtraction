@@ -18,13 +18,13 @@ date_since = "2020-10-8" # Fin de las inscripciones de las candidaturas 2020-10-
 
 def get_data_Twitter(api_object,query,languaje,num_items,data_since,columns_df):
     dictionary_data = {}
-    tweets = tw.Cursor(api_object.search,q=query,lang=languaje,since=data_since).items(num_items)
+    tweets = tw.Cursor(api_object.search,query=query,since=data_since).items(num_items)
     for tweet in tweets:
         print(tweet)
 
     return pd.DataFrame(data = dictionary_data,columns=columns_df)
         
-tweets = tw.Cursor(api.search, q=search_words,lang="es",since=date_since,tweet_mode='extended').items(3)
+tweets = tw.Cursor(api.search_30_day, environment_name='dev',query=search_words,fromDate ="202010082315",toDate="202001232315" ).items(3)
 
 # Iterate and print tweets
 for tweet in tweets:
