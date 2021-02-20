@@ -1,6 +1,5 @@
 import json
 from pymongo import MongoClient
-from types import SimpleNamespace
 from bson.json_util import dumps
 import pandas as pd
 import numpy as np
